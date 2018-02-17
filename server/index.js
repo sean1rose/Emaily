@@ -5,7 +5,7 @@ const app = express();
 // route handler
 app.get('/', (req, res) => {
   // send response
-  res.send({ hi: 'there'});
+  res.send({ peace: 'outttttt!'});
 });
 
 
