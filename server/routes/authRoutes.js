@@ -17,10 +17,17 @@ module.exports = (app) => {
   );
   // 4)
 
+  // 6)
+  app.get('/api/logout', (req, res) => {
+    req.logout();
+    res.send(req.user);
+  });
+
   // 5)
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
   });
+
   
 }
 
@@ -31,3 +38,4 @@ module.exports = (app) => {
 // 3) google strategy will know that this request has code contained w/in
 // 4) -> goes to passport.use -> w/ access token in hand (callback arrow function)
 // 5) make sure that someone has gone thru oauth flow can access user
+// 6) logout route handler - attached to req object - takes cookie and kills it
