@@ -11,6 +11,14 @@ passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
+// 10)
+passport.deserializeUser((id, done) => {
+  User.findById(id)
+    .then(user => {
+      done(null, user);
+    });
+});
+
 // 2)
 passport.use(
   new GoogleStrategy({
@@ -54,4 +62,5 @@ passport.use(
 // use mongoose model to save 
 // 8)  ^ 'user' is a model instance
 // 9) this is our own, internal, mongodb id (not the googleId)
+// 10) turn id into mongoose model instance by querying db for user w/ that id
   
