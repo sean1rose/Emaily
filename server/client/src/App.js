@@ -13,9 +13,12 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <a href="/auth/google">Sign In With Google</a>
       </div>
     );
   }
 }
 
 export default App;
+
+// when we move to prod - we don't have to run create react server; just need to build app 1 time (single js bundle file), deploy app to heroku and express server will serve up that js file
