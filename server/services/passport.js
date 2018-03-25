@@ -25,7 +25,11 @@ passport.use(
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
     // 3)
-    callbackURL: '/auth/google/callback'
+    callbackURL: '/auth/google/callback',
+    // callbackURL: 'https://localhost:5000/auth/google/callback'
+    // callbackURL: 'https://rocky-spire-64288.herokuapp.com//auth/google/callback'
+    // 11)
+    proxy: true
   }, (accessToken, refreshToken, profile, done) => {
     // 4)
     
@@ -63,4 +67,5 @@ passport.use(
 // 8)  ^ 'user' is a model instance
 // 9) this is our own, internal, mongodb id (not the googleId)
 // 10) turn id into mongoose model instance by querying db for user w/ that id
+// 11) saying to google -  if our request runs thru a proxy, trust it (solves http vs https issue)
   
